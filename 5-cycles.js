@@ -8,6 +8,7 @@ while (num < 90) {
 }
 
 
+
 let num1 = 80;
 
 while (num1 < 90) {
