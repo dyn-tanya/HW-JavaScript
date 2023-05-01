@@ -172,3 +172,60 @@ switch (mathSymbol) {
 }
 
 console.log('r = ' + r);
+
+
+//8.*  Використовуючи властивості рядків (тип string), та регулярний вираз (regular expression) видалити голосні букви зі слова.
+
+// а, е, и, і, о, у, я, ю, є, ї - голосні букви
+
+let word = 'Тетяна Динь';
+
+word = word.replace(/[аеиіоуяюєї]/gi, '');
+console.log(word);
+
+/*9.*  Використовуючи оператор if реалізувати логіку переводу метрів в кілометри,
+    так щоб в консоль виводився результат обчислень з правильним закінченням.
+    Наприклад: 1000 метрів це 1 кілометр;  32 метри це 0,032 кілометра і т.д.
+*/
+let meters = 32;
+let kilometers = meters / 1000;
+let met = meters % 10;
+let kilo = kilometers % 10;
+
+if (meters >= 11 && meters <= 20) { //з 11 по 20
+    console.log(meters + ' метрів це ' + kilometers + ' кілометра');
+}
+else if (met === 1) {   //1, 21, 31, 41, 51, 61, 71, і т.д
+    console.log(meters + ' метр це ' + kilometers + ' кілометра');
+}
+
+else if (met >= 2 && met <= 4) {  // 2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54
+    console.log(meters + ' метри це ' + kilometers + ' кілометра');
+}
+
+else if ((met >= 5 && met <= 9)) {  //5, 6, 7, 8, 9, 25, 26,27,28,29
+    console.log(meters + ' метрів це ' + kilometers + ' кілометра');
+}
+
+else if (met === 0 && kilo === 1) {  //1000 метрів це 1 кілометр
+    console.log(meters + ' метрів це ' + kilometers + ' кілометр');
+}
+
+else if ((met === 0) && (kilo >= 5 && kilo <= 9)) {  //5000 метрів це 5 кілометрів
+    console.log(meters + ' метрів це ' + kilometers + ' кілометрів');
+}
+
+else if ((met === 0) && (kilo === 0 || (kilometers >= 11 && kilometers <= 20)) ) {  //11 000 метрів це 11 кілометрів
+    console.log(meters + ' метрів це ' + kilometers + ' кілометрів');
+}
+
+else if ((met === 0) && (kilo >= 2 && kilo <= 4)) {  //2000 метрів це 2 кілометри
+    console.log(meters + ' метрів це ' + kilometers + ' кілометри');
+}
+
+else if (met === 0) { // 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 і т.д 
+    console.log(meters + ' метрів це ' + kilometers + ' кілометра');
+}
+else {
+    console.log('Помилка переводу');
+}
