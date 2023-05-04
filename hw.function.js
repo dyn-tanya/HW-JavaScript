@@ -22,7 +22,7 @@ function price(productPrice) {
     }
 }
 
-price(1500);
+price(500);
 
 //Завдання 3.1
 function price1(productPrice1) {
@@ -135,7 +135,7 @@ week(2);
 
 
 //Завдання 7 
-function symbol(mathSymbol, x, y, r) {
+function symbol(mathSymbol, x, y, r=0) {
     switch (mathSymbol) {
         case '+':
             r = x + y;
@@ -154,7 +154,7 @@ function symbol(mathSymbol, x, y, r) {
     console.log('r = ' + r);
 }
 
-symbol('/', 4, 2, 0);
+symbol('*', 7, 2);
 
 
 //Завдання 8
