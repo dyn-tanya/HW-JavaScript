@@ -5,8 +5,8 @@
     то виводити в консоль текст "Ми йдемо в інше кафе"
     (Змінні типу інтеджер містять кількість продуктів в наявності у вигляді вхідних даних)*/
 
-let hamburber = 4;
-let fri = 1;
+let hamburber = 3;
+let fri = 2;
 
 if (hamburber >= 4 && fri) {
     console.log('Ми поїли');
@@ -19,7 +19,7 @@ else {
 /*2.  Напишіть умовну конструкцію if, що перевіряє, чи знаходиться значення ціни товару між 1000 та 1900 включно.
     Результат виводити в консоль.*/
 
-let productPrice = 1500;
+let productPrice = 500;
 
 if (productPrice >= 1000 && productPrice <= 1900) {
     console.log('Ціна товару знаходиться між 1000 та 1900')
@@ -43,7 +43,7 @@ else {
     console.log('Ціна товару знаходиться між 1000 та 1900')
 }
 //Варіант 2 з оператором !
-let productPrice2 = 2000;
+let productPrice2 = 600;
 
 if (!(productPrice2 >= 1000 && productPrice2 <= 1900)) {
     console.log('Ціна товару не знаходиться між 1000 та 1900')
@@ -93,12 +93,12 @@ if (a > b) {
             console.log('Середнє число:' + c);
         }
     }
-    else {
+    else {  // макс - с 
         console.log('Середнє число:' + a);
     }
 }
 
-else {
+else { //a < b
     if (b > c) {
         if (a > c) {
             console.log('Середнє число:' + a);
@@ -178,7 +178,7 @@ console.log('r = ' + r);
 
 // а, е, и, і, о, у, я, ю, є, ї - голосні букви
 
-let word = 'Тетяна Динь';
+let word = 'ТЕтяна Динь';
 
 word = word.replace(/[аеиіоуяюєї]/gi, '');
 console.log(word);
@@ -187,35 +187,46 @@ console.log(word);
     так щоб в консоль виводився результат обчислень з правильним закінченням.
     Наприклад: 1000 метрів це 1 кілометр;  32 метри це 0,032 кілометра і т.д.
 */
-let meters = 32;
+let meters = -1*1;
 let kilometers = meters / 1000;
+
 let met = meters % 10;
 let kilo = kilometers % 10;
 
-if (meters >= 11 && meters <= 20) { //з 11 по 20
-    console.log(meters + ' метрів це ' + kilometers + ' кілометра');
+let meterFloat = meters % 1;
+let kilometerFloat = kilometers % 1;
+
+if ((meterFloat !== 0) && (kilometerFloat !== 0)) { //для випадку, коли метри і кілометри - не цілі числа
+    console.log(meters + ' метра це ' + kilometers + ' кілометра');
 }
-else if (met === 1) {   //1, 21, 31, 41, 51, 61, 71, і т.д
+
+else if (meters >= 11 && meters <= 20) { //з 11 по 20
+    console.log(meters + ' метрів це ' + kilometers + ' кілометра');
+
+}
+else if (met === 1) {   // числа, що закінчуються на 1  (1, 21, 31, 41, 51, 61, 71, і т.д)
     console.log(meters + ' метр це ' + kilometers + ' кілометра');
 }
 
-else if (met >= 2 && met <= 4) {  // 2, 3, 4, 22, 23, 24, 32, 33, 34, 42, 43, 44, 52, 53, 54
+else if (met >= 2 && met <= 4) {  // числа, що закінчуються на 2, 3, 4  (2, 3, 4, 22, 23, 24, 32, 33, 34 і т.д) 
     console.log(meters + ' метри це ' + kilometers + ' кілометра');
 }
 
-else if ((met >= 5 && met <= 9)) {  //5, 6, 7, 8, 9, 25, 26,27,28,29
+else if ((met >= 5 && met <= 9)) {  //числа, що закінчуються 5, 6, 7, 8, 9  (5, 6, 7, 8, 9, 25, 26, 27 ,28, 29 і т.д)
     console.log(meters + ' метрів це ' + kilometers + ' кілометра');
 }
 
+//Якщо кілометр - ціле число, та немає остачі від ділення на метри
+
+else if ((met === 0) && (kilo === 0 || (kilometers >= 11 && kilometers <= 20))) {  //11 000 метрів це 11 кілометрів
+    console.log(meters + ' метрів це ' + kilometers + ' кілометрів');
+
+}
 else if (met === 0 && kilo === 1) {  //1000 метрів це 1 кілометр
     console.log(meters + ' метрів це ' + kilometers + ' кілометр');
 }
 
 else if ((met === 0) && (kilo >= 5 && kilo <= 9)) {  //5000 метрів це 5 кілометрів
-    console.log(meters + ' метрів це ' + kilometers + ' кілометрів');
-}
-
-else if ((met === 0) && (kilo === 0 || (kilometers >= 11 && kilometers <= 20)) ) {  //11 000 метрів це 11 кілометрів
     console.log(meters + ' метрів це ' + kilometers + ' кілометрів');
 }
 
@@ -229,3 +240,5 @@ else if (met === 0) { // 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 і т.д
 else {
     console.log('Помилка переводу');
 }
+
+
